@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dev Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+        }
+        body {
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .hero {
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .hero .badge-ai {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            font-size: 0.85rem;
+            padding: 0.35em 0.75em;
+            border-radius: 6px;
+            vertical-align: middle;
+        }
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        .tech-pills span {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.3em 0.75em;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            height: 100%;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .project-card .number {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .project-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .project-card .desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.25rem;
+        }
+        .project-card .tech-stack span {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 0.2em 0.6em;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .project-card .links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 1.25rem;
+            transition: color 0.2s;
+        }
+        .project-card .links a:hover {
+            color: var(--accent-hover);
+        }
+        .project-card .links a i {
+            margin-right: 0.3rem;
+        }
+        .demo-access {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(129, 140, 248, 0.08));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 1.25rem 1.75rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .demo-access .icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        .demo-access .label {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .demo-access .creds {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .demo-access code {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            padding: 0.15em 0.5em;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        .architecture {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .architecture h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .architecture pre {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin: 0;
+            overflow-x: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 900px;">
+        <div class="hero">
+            <h1>AI Dev Portfolio <span class="badge-ai">AI-Native</span></h1>
+            <p>Four Java applications showcasing progressive complexity &mdash; from CLI tools to real-time distributed systems. Built with Claude Code (~80%) and human architecture decisions.</p>
+            <div class="tech-pills">
+                <span>Java 17</span>
+                <span>Spring Boot 3.2</span>
+                <span>PostgreSQL 16</span>
+                <span>WebSocket / STOMP</span>
+                <span>REST API</span>
+                <span>JavaFX 21</span>
+                <span>Bootstrap 5</span>
+                <span>Docker</span>
+                <span>GitHub Actions CI/CD</span>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-2">
+            <!-- Project 1 -->
+            <div class="col-md-6">
+                <div class="project-card">
+                    <div class="number">Project 1 &mdash; CLI</div>
+                    <h3><i class="bi bi-terminal me-2"></i>Device Inventory CLI</h3>
+                    <p class="desc">Command-line CRUD application for managing network devices. Direct JDBC with connection pooling.</p>
+                    <div class="tech-stack">
+                        <span>Java</span>
+                        <span>JDBC</span>
+                        <span>PostgreSQL</span>
+                        <span>HikariCP</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/mj-deving/device-inventory-cli" target="_blank"><i class="bi bi-github"></i>Source</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-md-6">
+                <div class="project-card">
+                    <div class="number">Project 2 &mdash; REST API + Client</div>
+                    <h3><i class="bi bi-hdd-network me-2"></i>Device Manager</h3>
+                    <p class="desc">Multi-module Maven project: REST API with Spring Boot and a JavaFX desktop client consuming it.</p>
+                    <div class="tech-stack">
+                        <span>Spring Boot</span>
+                        <span>Spring Data JPA</span>
+                        <span>JavaFX</span>
+                        <span>Swagger</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/mj-deving/device-manager" target="_blank"><i class="bi bi-github"></i>Source</a>
+                        <a href="http://213.199.32.18/swagger-ui/index.html"><i class="bi bi-braces"></i>API Docs</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-md-6">
+                <div class="project-card">
+                    <div class="number">Project 3 &mdash; Web Frontend</div>
+                    <h3><i class="bi bi-browser-chrome me-2"></i>Device Manager Web</h3>
+                    <p class="desc">Browser-based dashboard consuming the Project 2 API. Pure HTML/CSS/JS with responsive design.</p>
+                    <div class="tech-stack">
+                        <span>HTML / CSS / JS</span>
+                        <span>Bootstrap 5</span>
+                        <span>Fetch API</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/mj-deving/device-manager-web" target="_blank"><i class="bi bi-github"></i>Source</a>
+                        <a href="http://213.199.32.18/devices/"><i class="bi bi-box-arrow-up-right"></i>Live App</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col-md-6">
+                <div class="project-card">
+                    <div class="number">Project 4 &mdash; Real-Time Architecture</div>
+                    <h3><i class="bi bi-joystick me-2"></i>Arcade Hub</h3>
+                    <p class="desc">Real-time arcade machine monitoring with WebSocket events, a simulator, and a live dashboard.</p>
+                    <div class="tech-stack">
+                        <span>Spring Boot</span>
+                        <span>WebSocket</span>
+                        <span>STOMP</span>
+                        <span>SockJS</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/mj-deving/arcade-hub" target="_blank"><i class="bi bi-github"></i>Source</a>
+                        <a href="http://213.199.32.18/arcade/swagger-ui/index.html"><i class="bi bi-braces"></i>API Docs</a>
+                        <a href="http://213.199.32.18/arcade/"><i class="bi bi-box-arrow-up-right"></i>Live Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-access">
+            <span class="icon"><i class="bi bi-unlock"></i></span>
+            <div>
+                <div class="label">Try It Live</div>
+                <div class="creds">All APIs and dashboards use demo credentials: <code>admin</code> / <code>admin123</code></div>
+            </div>
+        </div>
+
+        <div class="architecture">
+            <h2><i class="bi bi-diagram-3 me-2"></i>Deployment Architecture</h2>
+            <pre>
+INTERNET
+    |
+nginx (port 80)                        Ubuntu 24.04 VPS
+    |
+    +-- /              --> Landing page (this page)
+    +-- /devices/      --> Device Manager Web (P3)
+    +-- /arcade/       --> Arcade Hub Dashboard (P4)
+    |
+    +-- /api/v1/       --> Spring Boot :8080 (Device Manager API)
+    +-- /swagger-ui/   --> Spring Boot :8080 (Swagger UI)
+    |
+    +-- /arcade/api/   --> Spring Boot :8081 (Arcade Hub API)
+    +-- /arcade/ws/    --> Spring Boot :8081 (WebSocket upgrade)
+    |
+    +-- PostgreSQL :5432
+        +-- devicedb   (Projects 1-3)
+        +-- arcadedb   (Project 4)</pre>
+        </div>
+
+        <footer>
+            Built by <a href="https://github.com/mj-deving" target="_blank">mj-deving</a> &mdash; AI-native development with Claude Code
+        </footer>
+    </div>
+</body>
+</html>
